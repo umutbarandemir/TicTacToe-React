@@ -4,20 +4,28 @@ const Player = (props) => {
 
     const [isEditing,setEditing] = useState(false);
 
+    const [playerName,setplayerName] = useState(props.name);
+
     function Edit(){
-        if(isEditing === false){
-          setEditing(true);
-        }else{
-          setEditing(false);
-        }
+        // if(isEditing === false){
+        //   setEditing(true);
+        // }else{
+        //   setEditing(false);
+        // }
+
+        setEditing((editing)=>!editing) // bir önceki state'i göz önünde bulundurarak state güncelleme -> stateFunction((name)=>!name)
     }
 
-    let content = <span className="player-name">{props.name}</span> ;
+    function changeName(e){
+      setplayerName(e.target.value);
+    }
+
+    let content = <span className="player-name">{playerName}</span> ;
 
     let buttonName = "Edit";
 
     if (isEditing === true) {
-      content = <input type="text" required />;
+      content = <input type="text" value={playerName} onChange={changeName} required />;
       buttonName = "Save";
     }
 
