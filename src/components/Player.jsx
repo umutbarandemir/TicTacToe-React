@@ -30,7 +30,7 @@ const Player = (props) => {
     }
 
   return (
-    <li>
+    <li className={props.isActive ? "active" : undefined}>
     <span className="player">
       {content}
       <span className="player-symbol">{props.symbol}</span>
