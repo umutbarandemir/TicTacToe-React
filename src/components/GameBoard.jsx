@@ -37,7 +37,7 @@ const GameBoard = (props) => {
                 <ol>
                     {row.map((column,columnI)=>(
                         <li key={columnI}>
-                            <button onClick={()=>props.onSelectSquare(rowI,columnI)}>{column}</button>
+                            <button onClick={()=>props.onSelectSquare(rowI,columnI)} disabled={column!==null}>{column}</button>
                         </li>
                     ))}
                 </ol>
